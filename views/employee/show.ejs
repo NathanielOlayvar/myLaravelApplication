@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-4">
+    <a href="/employees" class="btn btn-secondary mb-3">Back to Employee List</a>
+    <h1 class="mb-3">Employee Detail</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr><td><strong>Name</strong></td><td><%= employee.name %></td></tr>
+            <tr><td><strong>Address</strong></td><td><%= employee.address %></td></tr>
+            <tr><td><strong>Position</strong></td><td><%= employee.position %></td></tr>
+            <tr><td><strong>Salary</strong></td><td>$<%= employee.salary %>/year</td></tr>
+        </tbody>
+    </table>
+
+    <a href="/employees/edit/<%= employee._id%>" class="btn btn-primary">Edit</a>
+    <form action="/employees/delete/<%= employee._id%>" method="post" class="d-inline">
+        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</button>
+    </form>
+</body>
+</html>
