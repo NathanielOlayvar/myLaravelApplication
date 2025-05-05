@@ -29,6 +29,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//------------------------- redirects when input localhost:3000 
+app.get('/', (req, res) => {
+  res.redirect('/employees');
+});
+//----------------------------------------------------------------
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
